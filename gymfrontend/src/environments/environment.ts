@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  // Configuración local, asumiendo que tu backend corre en 8080.
-  apiUrl: 'http://localhost:8080/', 
+  // Configuración de Producción, apuntando a tu backend en Render.
+  apiUrl: 'https://webgym-backend.onrender.com/', 
 };
