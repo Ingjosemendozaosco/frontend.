@@ -6,7 +6,7 @@ export interface RegisterPayload { nombre: string; apellido: string; email: stri
 export interface LoginPayload { email: string; password: string; }
 export interface AuthResponse { token: string; }
 
-const API_BASE = 'https://webgym-frontend.onrender.com/api/auth';
+const API_BASE = '${environment.apiUrl}/api/auth';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
