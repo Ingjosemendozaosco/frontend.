@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const API_BASE = 'https://webgym-frontend.onrender.com';
+const API_BASE = '${environment.apiUrl}';
 
 @Injectable({ providedIn: 'root' })
 export class UsuarioService {
