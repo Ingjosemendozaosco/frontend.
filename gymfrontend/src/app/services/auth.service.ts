@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { environment } from 'src/environments/environment'; // ¡Importación Corregida!
+import { environment } from './../../environments/environment'; // ⬅️ ¡ESTA ES LA RUTA QUE FUNCIONA EN RENDER!
 
 export interface RegisterPayload { nombre: string; apellido: string; email: string; password: string; }
 export interface LoginPayload { email: string; password: string; }
