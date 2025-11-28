@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-const API_BASE = 'https://webgym-frontend.onrender.com';
+import { environment } from './../../environments/environment'; // ⬅️ CORRECCIÓN 1: Importar environment con ruta relativa
 
 @Injectable({ providedIn: 'root' })
 export class SuscripcionesService {
-  private base = `${API_BASE}/api/suscripciones`;
+  // ⬅️ CORRECCIÓN 2: Usar environment.apiUrl para apuntar al BACKEND (webgym-backend.onrender.com)
+  private base = `${environment.apiUrl}api/suscripciones`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-  crear(body: {
-    membresiaId?: number;
-    planSuscripcionId?: number;
-    metodoPago?: string;
-    monto?: number;
-    comprobanteUrl?: string;
-  }) {
-    return this.http.post<any>(`${this.base}`, body);
-  }
+  crear(body: {
+    membresiaId?: number;
+    planSuscripcionId?: number;
+    metodoPago?: string;
+    monto?: number;
+    comprobanteUrl?: string;
+  }) {
+    return this.http.post<any>(`${this.base}`, body);
+  }
 
-  mias() {
-    return this.http.get<any[]>(`${this.base}/mias`);
-  }
+  mias() {
+    return this.http.get<any[]>(`${this.base}/mias`);
+  }
 }
