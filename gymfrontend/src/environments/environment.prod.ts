@@ -1,5 +1,5 @@
 export const environment = {
-  production: true,
-  // SOLO LA URL BASE DEL BACKEND
-  apiUrl: 'https://webgym-backend.onrender.com/', 
+  production: true,
+  // Configuración de Producción, apuntando a tu backend en Render.
+  apiUrl: 'https://webgym-backend.onrender.com/', 
 };
