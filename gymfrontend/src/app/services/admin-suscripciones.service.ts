@@ -1,63 +1,63 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-
-const API_BASE = 'https://webgym-frontend.onrender.com';
+import { environment } from './../../environments/environment'; // ⬅️ CORRECCIÓN 1: Importar environment con ruta relativa
 
 @Injectable({ providedIn: 'root' })
 export class AdminSuscripcionesService {
-  private readonly basePlanes = `${API_BASE}/api/planes`;
-  private readonly baseMembresias = `${API_BASE}/api/membresias`;
+  // Usamos environment.apiUrl para apuntar al BACKEND (webgym-backend.onrender.com)
+  private readonly basePlanes = `${environment.apiUrl}api/planes`;
+  private readonly baseMembresias = `${environment.apiUrl}api/membresias`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-  // Planes
-  listarPlanes() {
-    return this.http.get<any[]>(this.basePlanes);
-  }
+  // Planes
+  listarPlanes() {
+    return this.http.get<any[]>(this.basePlanes);
+  }
 
-  obtenerPlan(id: number) {
-    return this.http.get<any>(`${this.basePlanes}/${id}`);
-  }
+  obtenerPlan(id: number) {
+    return this.http.get<any>(`${this.basePlanes}/${id}`);
+  }
 
-  crearPlan(body: any) {
-    return this.http.post<any>(this.basePlanes, body);
-  }
+  crearPlan(body: any) {
+    return this.http.post<any>(this.basePlanes, body);
+  }
 
-  actualizarPlan(id: number, body: any) {
-    return this.http.put<any>(`${this.basePlanes}/${id}`, body);
-  }
+  actualizarPlan(id: number, body: any) {
+    return this.http.put<any>(`${this.basePlanes}/${id}`, body);
+  }
 
-  eliminarPlan(id: number) {
-    return this.http.delete<void>(`${this.basePlanes}/${id}`);
-  }
+  eliminarPlan(id: number) {
+    return this.http.delete<void>(`${this.basePlanes}/${id}`);
+  }
 
-  // Membresías
-  listarMembresias() {
-    return this.http.get<any[]>(this.baseMembresias);
-  }
+  // Membresías
+  listarMembresias() {
+    return this.http.get<any[]>(this.baseMembresias);
+  }
 
-  obtenerMembresia(id: number) {
-    return this.http.get<any>(`${this.baseMembresias}/${id}`);
-  }
+  obtenerMembresia(id: number) {
+    return this.http.get<any>(`${this.baseMembresias}/${id}`);
+  }
 
-  crearMembresia(body: any) {
-    return this.http.post<any>(this.baseMembresias, body);
-  }
+  crearMembresia(body: any) {
+    return this.http.post<any>(this.baseMembresias, body);
+  }
 
-  actualizarMembresia(id: number, body: any) {
-    return this.http.put<any>(`${this.baseMembresias}/${id}`, body);
-  }
+  actualizarMembresia(id: number, body: any) {
+    return this.http.put<any>(`${this.baseMembresias}/${id}`, body);
+  }
 
-  eliminarMembresia(id: number) {
-    return this.http.delete<void>(`${this.baseMembresias}/${id}`);
-  }
+  eliminarMembresia(id: number) {
+    return this.http.delete<void>(`${this.baseMembresias}/${id}`);
+  }
 
-  // Suscriptores
-  suscriptoresMembresia(id: number) {
-    return this.http.get<any[]>(`${this.baseMembresias}/${id}/suscriptores`);
-  }
+  // Suscriptores
+  suscriptoresMembresia(id: number) {
+    return this.http.get<any[]>(`${this.baseMembresias}/${id}/suscriptores`);
+  }
 
-  suscriptoresPlan(id: number) {
-    return this.http.get<any[]>(`${this.basePlanes}/${id}/suscriptores`);
-  }
+  suscriptoresPlan(id: number) {
+    return this.http.get<any[]>(`${this.basePlanes}/${id}/suscriptores`);
+  }
 }
